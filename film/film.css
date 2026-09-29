@@ -1,0 +1,163 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('../brand/fonts/Inter%5Bopsz,wght%5D.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: block;
+}
+
+:root {
+  --bg: #0A0A0A;
+  --section: #0F0F0F;
+  --card: #161616;
+  --card2: #1A1A1A;
+  --app: #2E2E2E;
+  --accent: #FB8B24;
+  --brand: #E85D26;
+  --o1: #FF6B00;
+  --o2: #FF8533;
+  --o3: #FDBA74;
+  --amber: #F6C453;
+  --t92: rgba(255, 255, 255, .92);
+  --t85: rgba(255, 255, 255, .85);
+  --t72: rgba(255, 255, 255, .72);
+  --t65: rgba(255, 255, 255, .65);
+  --t35: rgba(255, 255, 255, .35);
+  --hair: rgba(255, 255, 255, .08);
+  --hair2: rgba(255, 255, 255, .12);
+}
+
+@font-face {
+  font-family: 'InterStatic';
+  src: url('../brand/fonts/static/Inter-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: block;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
+  text-rendering: geometricPrecision;
+}
+#stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); }
+.layer, .scene { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.scene { overflow: hidden; }
+.abs { position: absolute; left: 0; top: 0; }
+.ch { display: inline-block; white-space: pre; }
+.wmask { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 .02em .12em; margin: 0 -.02em -.12em; }
+.wi { display: inline-block; }
+canvas { display: block; }
+
+/* ---------- global overlays ---------- */
+#flash { mix-blend-mode: screen; pointer-events: none; }
+#vignette {
+  background: radial-gradient(ellipse 75% 75% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.42) 100%);
+  pointer-events: none;
+}
+
+/* ---------- S1 montage ---------- */
+.s1-clip { position: absolute; inset: 0; overflow: hidden; }
+.s1-cv { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.s1-grade {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 50%, rgba(0,0,0,0) 35%, rgba(0,0,0,.5) 100%),
+    linear-gradient(180deg, rgba(10,10,10,.45) 0%, rgba(10,10,10,.12) 38%, rgba(10,10,10,.12) 62%, rgba(10,10,10,.55) 100%);
+}
+.s1-tint { position: absolute; inset: 0; background: #FF6B00; mix-blend-mode: soft-light; opacity: .22; }
+.s1-line {
+  position: absolute; left: 0; top: 0; height: 2px; background: #FFB26B;
+  box-shadow: 0 0 10px 1px rgba(251,139,36,.9), 0 0 36px 6px rgba(255,107,0,.45);
+}
+.s1-kicker {
+  position: absolute; left: 0; top: 352px; width: 1920px; text-align: center;
+  font-weight: 600; font-size: 28px; letter-spacing: .36em; text-indent: .36em; color: var(--accent);
+  text-shadow: 0 2px 18px rgba(0,0,0,.5);
+}
+.s1-kicker .ch { text-align: center; }
+.s1-wordwrap { position: absolute; left: 0; top: 405px; width: 1920px; height: 262px; overflow: hidden; }
+.s1-word {
+  position: absolute; left: 0; top: 0; width: 1920px; text-align: center;
+  font-weight: 700; font-size: 208px; line-height: 250px; letter-spacing: -.04em;
+  text-shadow: 0 6px 60px rgba(0,0,0,.35);
+}
+.s1-count {
+  position: absolute; top: 700px; left: 0; width: 1920px; text-align: center;
+  font-weight: 500; font-size: 20px; letter-spacing: .3em; text-indent: .3em; color: var(--t65);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- S2 problems ---------- */
+.s2 { background: radial-gradient(ellipse 55% 55% at 50% 50%, #17120E 0%, #0B0A09 60%, #070707 100%); }
+.s2-row {
+  position: absolute; left: 0; top: 0; white-space: nowrap;
+  font-weight: 700; font-size: 150px; line-height: 172px; letter-spacing: -.035em;
+}
+.s2-row.ol { font-family: 'InterStatic'; color: rgba(255,255,255,.035); -webkit-text-stroke: 2px rgba(255,255,255,.34); }
+.s2-row.hero { color: #fff; }
+.s2-slice { position: absolute; left: 0; top: 0; white-space: nowrap; font-weight: 700; font-size: 150px; line-height: 172px; letter-spacing: -.035em; }
+.s2-slice.r { color: #FF2A1A; mix-blend-mode: screen; }
+.s2-slice.c { color: #19C8FF; mix-blend-mode: screen; }
+.s2-inc { position: absolute; left: 0; top: 0; width: 1920px; text-align: center; white-space: nowrap;
+  font-size: 132px; line-height: 150px; letter-spacing: -.02em; }
+.s2-inc .ch { will-change: transform; }
+.s2-kick { position: absolute; left: 0; width: 1920px; text-align: center; top: 355px;
+  font-weight: 600; font-size: 22px; letter-spacing: .36em; text-indent: .36em; color: var(--accent); }
+.s2-core { position: absolute; left: 0; top: 0; width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,245,230,1) 0%, rgba(255,190,110,.95) 6%, rgba(255,120,30,.55) 16%, rgba(255,80,20,.18) 34%, rgba(255,60,10,0) 60%); }
+.s2-doc {
+  position: absolute; left: 0; top: 0; width: 230px; height: 150px; border-radius: 14px;
+  background: #151515; border: 1px solid rgba(255,255,255,.09);
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+.s2-doc i { position: absolute; left: 18px; height: 9px; border-radius: 5px; background: rgba(255,255,255,.13); }
+.s2-doc b { position: absolute; left: 18px; top: 18px; width: 26px; height: 26px; border-radius: 8px; background: rgba(251,139,36,.2); border: 1px solid rgba(251,139,36,.45); }
+
+/* ---------- H mark ---------- */
+.hmark { position: absolute; left: 0; top: 0; }
+.hmark .p { position: absolute; background: linear-gradient(90deg, #FF0000, #FF5722); }
+
+/* ---------- S3 reveal ---------- */
+.s3 { background: radial-gradient(ellipse 60% 60% at 50% 46%, #1C0F08 0%, #0C0A09 55%, #080808 100%); }
+.s3-glow { position: absolute; left: 0; top: 0; width: 1400px; height: 1400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,70,20,.34) 0%, rgba(255,87,34,.14) 30%, rgba(255,87,34,0) 62%); }
+.s3-ring { position: absolute; left: 0; top: 0; width: 100px; height: 100px; border-radius: 50%;
+  border: 3px solid rgba(255,140,60,.9); box-shadow: 0 0 30px rgba(255,107,0,.6), inset 0 0 30px rgba(255,107,0,.4); }
+.s3-word { position: absolute; left: 0; top: 0; width: 1920px; text-align: center; font-weight: 600; font-size: 168px; line-height: 190px; letter-spacing: -.035em; }
+.s3-sub { position: absolute; left: 0; top: 0; width: 1920px; text-align: center; font-weight: 400; font-size: 40px; letter-spacing: -.005em; color: var(--t72); }
+
+.globe-cv { position: absolute; left: 0; top: 0; }
+.bigline { position: absolute; left: 0; top: 0; width: 1920px; text-align: center; font-weight: 600; font-size: 96px; line-height: 1.1; letter-spacing: -.035em; }
+
+/* S8 roles */
+.role { position: absolute; left: 0; top: 0; height: 96px; padding: 0 46px; border-radius: 22px; display: flex; align-items: center;
+  font-size: 40px; font-weight: 600; white-space: nowrap; color: rgba(255,255,255,.88);
+  background: #131313; border: 1.5px solid rgba(255,255,255,.14); }
+.role.on { background: #2A1A0C; border-color: #FB8B24; color: #fff; box-shadow: 0 0 40px rgba(251,139,36,.25); }
+.s8-kick { position: absolute; left: 0; width: 1920px; text-align: center; font-weight: 600; font-size: 22px; letter-spacing: .36em; text-indent: .36em; color: var(--accent); }
+
+/* S9 finale */
+.s9-word { position: absolute; left: 0; top: 0; white-space: nowrap; font-weight: 600; font-size: 176px; line-height: 1; letter-spacing: -.04em; transform-origin: 50% 50%; }
+.s9-to { color: var(--accent); }
+.s9-url { position: absolute; left: 0; width: 1920px; text-align: center; font-weight: 500; font-size: 36px; letter-spacing: .01em; color: var(--t85); }
+.cta { position: absolute; left: 0; top: 0; height: 76px; padding: 0 38px; border-radius: 14px; display: flex; align-items: center; gap: 14px;
+  font-size: 30px; font-weight: 600; color: #1A1204; background: var(--accent); box-shadow: 0 14px 44px rgba(251,139,36,.35); white-space: nowrap; }
+
+/* ---------- v3 product section ---------- */
+.pr-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 90% at 50% 55%, #15110E 0%, #0C0B0A 55%, #080808 100%); }
+.pr-glow { position: absolute; left: 0; top: 0; width: 1800px; height: 1800px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(251,139,36,.10) 0%, rgba(232,93,38,.045) 32%, rgba(0,0,0,0) 64%); }
+.pr-view { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; perspective: 2000px; perspective-origin: 960px 540px; }
+.pr-winpos { position: absolute; left: 160px; top: 40px; width: 1600px; height: 1000px; transform-origin: 800px 500px; }
+.vb { position: absolute; left: 0; top: 0; width: 720px; }
+.vb-k { font-size: 21px; font-weight: 600; letter-spacing: .14em; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; height: 26px; }
+.vb-k .m { color: rgba(255,255,255,.34); }
+.vb-vm { display: block; overflow: hidden; padding: 6px 0 20px; margin: 4px 0 -20px; }
+.vb-v { font-size: 124px; font-weight: 700; letter-spacing: -.045em; line-height: 1; white-space: nowrap; }
+.vb-t { font-size: 38px; line-height: 1.33; color: rgba(255,255,255,.66); margin-top: 26px; letter-spacing: -.008em; font-weight: 400; }
+.vb-t .hl { color: #fff; font-weight: 500; }
+.vb.c { text-align: center; }
+.vb-line { position: absolute; height: 2px; background: linear-gradient(90deg, #FB8B24, rgba(251,139,36,0)); }

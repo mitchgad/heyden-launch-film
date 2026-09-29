@@ -1,0 +1,35 @@
+{
+ "hero_video": {
+  "paused": false,
+  "t": 9.20877,
+  "d": 42.09
+ },
+ "/": {
+  "tiles": 7,
+  "title": "Heyden | Innovation Framework"
+ },
+ "/commons": {
+  "tiles": 3,
+  "title": "Commons | Heyden"
+ },
+ "/pricing": {
+  "tiles": 3,
+  "title": "Pricing | Heyden"
+ },
+ "/faq": {
+  "tiles": 2,
+  "title": "FAQ | Heyden"
+ },
+ "/contact": {
+  "tiles": 1,
+  "title": "Contact | Heyden"
+ },
+ "/login": {
+  "tiles": 1,
+  "title": "Sign In | Heyden"
+ },
+ "/commons/signup": {
+  "tiles": 2,
+  "title": "Commons Sign Up | Heyden"
+ }
+}

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Heyden launch film v3: storyboard</title>
+<style>
+@font-face { font-family: 'Inter'; src: url('/brand/fonts/Inter%5Bopsz,wght%5D.ttf') format('truetype'); font-weight: 100 900; }
+@page { size: 1600px 900px; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #0B0B0B; }
+body { font-family: 'Inter', system-ui, sans-serif; color: #F0F0EE; -webkit-font-smoothing: antialiased; font-feature-settings: 'cv11' 1; }
+.pg { position: relative; width: 1600px; height: 900px; overflow: hidden; padding: 56px 64px; background: radial-gradient(ellipse 70% 80% at 70% 30%, #15110E 0%, #0C0B0A 60%, #0A0A0A 100%); page-break-after: always; break-after: page; }
+.kick { font-size: 13px; font-weight: 700; letter-spacing: .16em; color: #FB8B24; text-transform: uppercase; }
+.muted { color: rgba(255,255,255,.62); }
+h1 { font-size: 58px; font-weight: 650; letter-spacing: -.03em; line-height: 1.05; margin-top: 16px; }
+h2 { font-size: 34px; font-weight: 650; letter-spacing: -.02em; line-height: 1.1; margin-top: 10px; }
+h3 { font-size: 19px; font-weight: 650; letter-spacing: -.01em; }
+p, li { font-size: 16px; line-height: 1.5; color: rgba(255,255,255,.78); }
+.foot { position: absolute; left: 64px; right: 64px; bottom: 26px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,.35); letter-spacing: .04em; }
+/* timeline */
+.tl { position: relative; margin-top: 44px; height: 132px; }
+.tl .bar { position: absolute; left: 0; right: 0; top: 34px; height: 44px; display: flex; border-radius: 10px; overflow: hidden; }
+.tl .seg { height: 100%; display: flex; align-items: center; padding-left: 14px; font-size: 14px; font-weight: 650; white-space: nowrap; }
+.seg.old { background: #232323; color: rgba(255,255,255,.7); }
+.seg.new { background: linear-gradient(90deg, #7A3A0C, #B2560F); color: #fff; }
+.tl .sub { position: absolute; top: 86px; height: 34px; display: flex; }
+.tl .sub div { height: 100%; border-left: 1px solid rgba(251,139,36,.5); padding: 7px 0 0 8px; font-size: 12.5px; font-weight: 600; color: #FDBA74; white-space: nowrap; overflow: hidden; }
+.tl .ticks { position: absolute; left: 0; right: 0; top: 0; height: 26px; }
+.tl .ticks span { position: absolute; top: 0; white-space: nowrap; font-size: 12px; color: rgba(255,255,255,.45); transform: translateX(-50%); font-variant-numeric: tabular-nums; }
+.notes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 30px; }
+.note { background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 20px 20px 18px; }
+.note .n { font-size: 12px; font-weight: 700; letter-spacing: .12em; color: #FB8B24; }
+.note h3 { margin-top: 8px; }
+.note p { font-size: 14.5px; margin-top: 8px; line-height: 1.45; }
+/* platform */
+.plat { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; margin-top: 26px; }
+.plat img { width: 100%; display: block; border-radius: 12px; }
+.plat h3 { margin-top: 16px; }
+.plat h3 span { color: #FB8B24; font-size: 13px; font-weight: 700; letter-spacing: .12em; margin-right: 10px; }
+.plat p { font-size: 14.5px; margin-top: 6px; line-height: 1.45; }
+/* panels */
+.grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 36px; row-gap: 22px; margin-top: 22px; }
+.pn { display: grid; grid-template-columns: 420px 1fr; gap: 18px; align-items: start; }
+.pn img { width: 420px; height: 236px; display: block; border-radius: 8px; box-shadow: 0 0 0 1px rgba(255,255,255,.09); }
+.pn .tc { font-size: 12.5px; font-weight: 700; letter-spacing: .08em; color: #FB8B24; font-variant-numeric: tabular-nums; }
+.pn .tc b { color: rgba(255,255,255,.5); font-weight: 600; margin-left: 8px; letter-spacing: .04em; }
+.pn h3 { margin-top: 6px; font-size: 18px; }
+.pn p { font-size: 13.4px; line-height: 1.42; margin-top: 6px; color: rgba(255,255,255,.78); }
+.pn .snd { margin-top: 8px; font-size: 12.8px; line-height: 1.4; color: rgba(142,192,223,.9); padding-left: 16px; position: relative; }
+.pn .snd::before { content: ''; position: absolute; left: 0; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: rgba(111,163,194,.8); }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; padding: 3px 8px; border-radius: 999px; margin-left: 8px; vertical-align: 2px; }
+.tag.v1 { color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
+/* pace + sound */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 26px; }
+table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+td { font-size: 14px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.08); color: rgba(255,255,255,.8); vertical-align: top; }
+td.t { text-align: right; font-variant-numeric: tabular-nums; color: #FDBA74; font-weight: 600; white-space: nowrap; padding-left: 16px; }
+ul { margin-top: 10px; padding-left: 20px; }
+li { margin-top: 8px; font-size: 15px; }
+.q { background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 22px 24px; margin-top: 18px; }
+.q .n { font-size: 13px; font-weight: 700; color: #FB8B24; letter-spacing: .1em; }
+.q h3 { margin-top: 6px; font-size: 20px; }
+.q p { margin-top: 8px; font-size: 15px; }
+</style>
+</head>
+<body>
+
+<!-- 1 · overview -->
+<section class="pg">
+  <div class="kick">Heyden launch film · v3 · storyboard</div>
+  <h1>The product section, rebuilt<br>as a real platform you move through</h1>
+  <p class="muted" style="margin-top:14px;font-size:18px">For Mitch's review before the rough cut. Outside 8–32 s the picture is v1's, unchanged.</p>
+  <div class="tl">
+    <div class="ticks">
+      <span style="left:0%">0</span><span style="left:20%">8</span><span style="left:40%">16</span><span style="left:60%">24</span><span style="left:80%">32</span><span style="left:99%">40 s</span>
+    </div>
+    <div class="bar">
+      <div class="seg old" style="width:20%">Intro + logo · v1</div>
+      <div class="seg new" style="width:60%">Product · new, 24 s (v1: 14 s)</div>
+      <div class="seg old" style="width:20%">Roles + Ideas to Outcomes · v1</div>
+    </div>
+    <div class="sub" style="left:20%;width:60%">
+      <div style="width:22.1%">01 Collaborate</div>
+      <div style="width:24.6%">02 Innovate</div>
+      <div style="width:23.5%">03 Strategise</div>
+      <div style="width:21.3%">04 Solve</div>
+      <div style="width:8.5%">World</div>
+    </div>
+  </div>
+  <div class="notes">
+    <div class="note"><div class="n">NOTE 1 · THE START</div><h3>Untouched</h3><p>The intro and logo scenes run from v1's code and footage. Re-rendered frames match v1's master (spot-checked against it). The logo's whip now hands straight into the platform.</p></div>
+    <div class="note"><div class="n">NOTE 2 · THE PRODUCT</div><h3>Designed, not copied</h3><p>One Heyden app with the product's real navigation (Commons, Quick Assessment, Projects, Strategy Hub) and four complete pages, used live: a cursor navigates, types, assesses, aligns and asks. Real features only.</p></div>
+    <div class="note"><div class="n">NOTE 3 · TIMING</div><h3>Readable, never a slideshow</h3><p>Each title and tagline holds about 3 s while the app keeps moving behind it, then one close-up you can read. The camera never stops; every page change is a click or a camera move. Film: 40.0 s.</p></div>
+    <div class="note"><div class="n">NOTE 4 · SOUND</div><h3>Original, low and varied</h3><p>A score written to the cut, not stock loops. Soft, bassy effects that vary event to event. No marimba, glockenspiel, bells or bright shakers. Plan on page 9.</p></div>
+  </div>
+  <div class="foot"><span>Heyden launch film v3 · storyboard</span><span>1</span></div>
+</section>
+
+<!-- 2 · platform 1 -->
+<section class="pg">
+  <div class="kick">The platform · 1 of 2</div>
+  <h2>Four full pages in one app, the product's own navigation</h2>
+  <div class="plat">
+    <div><img src="platform/01-projects.png"><h3><span>01 COLLABORATE</span>Projects</h3><p>"Welcome back, Connor"; the seven-stage Project Pipeline (Define Problem → Measure Success) with projects in their stages; My Projects; External Organisations Projects with editor access; the workspace's multi-agency tenancy and approval roles (Drafter, Reviewer, Approver); Archived projects.</p></div>
+    <div><img src="platform/02-quick-assessment.png"><h3><span>02 INNOVATE</span>Quick Assessment</h3><p>"What have the good idea fairies come up with today?"; a vendor proposal with its PDF; Assess proposal; the brief: readiness TRL · IRL · ORL and the TRL scale (Research, Development, Deployment) with the vendor's declared level against the assessor's; Assessed Projects; Shared with me.</p></div>
+  </div>
+  <div class="foot"><span>Labels come from heyden.ai, the product screenshots and the product's own stylesheet (which confirms the TRL/IRL/ORL panels, declared-vs-assessor TRL, Ask Heyden research tasks and approval roles).</span><span>2</span></div>
+</section>
+
+<!-- 3 · platform 2 -->
+<section class="pg">
+  <div class="kick">The platform · 2 of 2</div>
+  <h2>Colours follow the product's tokens: orange for actions, blue for AI</h2>
+  <div class="plat">
+    <div><img src="platform/03-strategy-hub.png"><h3><span>03 STRATEGISE</span>Strategy Hub</h3><p>Dashboard, Objectives, Source Documents; 124 objectives across 6 source documents; Coverage; Critical gaps; Active projects; coverage by source document; priority distribution; the highest-priority gaps, where a project gets aligned (shown here after it has been: 1%, 104, 1 unaligned).</p></div>
+    <div><img src="platform/04-commons-ask-heyden.png"><h3><span>04 SOLVE</span>Commons + Ask Heyden</h3><p>Search listings, agencies, industry bodies, products and capabilities; trending capabilities; filters by role and by region (Australia, United States, Canada); Ask Heyden, AI research on demand, returning a curated view; claimed listings; "Showing 1–21 of 219".</p></div>
+  </div>
+  <div class="foot"><span>Demo data follows the screenshots' workspace (Connor; Camera Detection – Smoke; Stratoship; Firefighter Wearables). No real organisation appears as a user; listings and source documents use generic names.</span><span>3</span></div>
+</section>
+
+<!-- 4 · panels 1–4 -->
+<section class="pg">
+  <div class="kick">Storyboard · 6.0–12.6 s</div>
+  <h2>Arrival and 01 Collaborate</h2>
+  <div class="grid">
+    <div class="pn"><img src="frames/panel-01-007.300.png"><div><div class="tc">01 · 6.0–8.0 s <span class="tag v1">V1 · UNCHANGED</span></div><h3>The logo</h3><p>As v1. At 7.76 s the logo whips out to the left.</p><div class="snd">Deep sub hit and a warm chord on the mark; the whip pulls into a low whoosh.</div></div></div>
+    <div class="pn"><img src="frames/panel-02-008.500.png"><div><div class="tc">02 · 7.9–8.6 s</div><h3>The platform arrives on the whip</h3><p>The Heyden app rides in from the right on the same motion and brakes hard on the 8.0 downbeat, three-quarter to camera. The Projects page builds as it lands.</p><div class="snd">Low whoosh into a soft sub thump; the groove starts on 8.0.</div></div></div>
+    <div class="pn"><img src="frames/panel-03-009.750.png"><div><div class="tc">03 · 8.1–11.0 s</div><h3>01 Collaborate</h3><p>Title and tagline rise on the left and hold ~3 s. Behind them the pipeline lights stage by stage, and Camera Detection – Smoke moves on into Readiness (TRL / IRL / ORL).</p><div class="snd">Warm bass and soft kick; each stage lights with a low, rounded pluck in key.</div></div></div>
+    <div class="pn"><img src="frames/panel-04-012.050.png"><div><div class="tc">04 · 11.0–12.6 s</div><h3>Shared work, close enough to read</h3><p>The window swings square-on and wipes the type. A partner agency joins the workspace (multi-agency tenancy); their project lands under External Organisations Projects with editor access.</p><div class="snd">A felt-like slide and a warm two-note swell.</div></div></div>
+  </div>
+  <div class="foot"><span>Frames are renders from the film's engine at those times (no motion blur yet)</span><span>4</span></div>
+</section>
+
+<!-- 5 · panels 5–8 -->
+<section class="pg">
+  <div class="kick">Storyboard · 12.6–19.2 s</div>
+  <h2>Into Quick Assessment: 02 Innovate</h2>
+  <div class="grid">
+    <div class="pn"><img src="frames/panel-05-013.320.png"><div><div class="tc">05 · 12.6–13.3 s</div><h3>Navigate</h3><p>The camera rises to the top bar. The cursor clicks Quick Assessment; the nav pill slides across and the page changes in place.</p><div class="snd">A soft, low "thock" for the click; a short airy swish for the page.</div></div></div>
+    <div class="pn"><img src="frames/panel-06-015.400.png"><div><div class="tc">06 · 13.3–16.5 s</div><h3>02 Innovate</h3><p>The window swings left; the title rises on the right. On the page: "What have the good idea fairies come up with today?", the vendor's proposal being typed, the PDF attaching.</p><div class="snd">Low whoosh on the swing; muffled, soft typing with no bright clicks.</div></div></div>
+    <div class="pn"><img src="frames/panel-07-017.120.png"><div><div class="tc">07 · 16.5–17.6 s</div><h3>Assess proposal</h3><p>Square-on and close. The proposal reads in full, then the press.</p><div class="snd">A round, low button pop; an airy rise as Heyden starts assessing.</div></div></div>
+    <div class="pn"><img src="frames/panel-08-018.750.png"><div><div class="tc">08 · 17.6–19.2 s</div><h3>The brief</h3><p>"Assessing the proposal…", then the brief: readiness TRL 6 · IRL 4 · ORL 3 and the TRL scale, the vendor's declared 7 against the assessor's 6. It saves to Assessed Projects.</p><div class="snd">Three soft bass notes climb as the readiness panels land.</div></div></div>
+  </div>
+  <div class="foot"><span>Proposal text is the product screenshot's own, completed</span><span>5</span></div>
+</section>
+
+<!-- 6 · panels 9–12 -->
+<section class="pg">
+  <div class="kick">Storyboard · 19.2–24.4 s</div>
+  <h2>Strategy Hub: 03 Strategise</h2>
+  <div class="grid">
+    <div class="pn"><img src="frames/panel-09-019.620.png"><div><div class="tc">09 · 19.2–19.8 s</div><h3>Crane up</h3><p>A different move for a new chapter: the camera cranes up and the window lies back like a table while the nav moves to Strategy Hub.</p><div class="snd">A long, low whoosh; the pad opens onto a new chord.</div></div></div>
+    <div class="pn"><img src="frames/panel-10-021.850.png"><div><div class="tc">10 · 19.8–22.3 s</div><h3>03 Strategise</h3><p>Title centred above the table. The Hub's tiles rise off the surface and count up (124 objectives, 105 critical gaps). "creep" creeps out and is snapped back.</p><div class="snd">Stacked low thumps as tiles rise; a stretched bass bend on "creep", clamped by a tight thump.</div></div></div>
+    <div class="pn"><img src="frames/panel-11-023.300.png"><div><div class="tc">11 · 22.3–23.6 s</div><h3>Align a project</h3><p>The window stands up to face us. On a critical gap: Align project → Camera Detection – Smoke.</p><div class="snd">Soft clicks; a low pop as the menu opens.</div></div></div>
+    <div class="pn"><img src="frames/panel-12-024.200.png"><div><div class="tc">12 · 23.6–24.4 s</div><h3>Coverage moves</h3><p>The gap turns covered and the tiles update: Coverage 0% → 1%, Critical gaps 105 → 104, 1 unaligned.</p><div class="snd">A warm confirming chord. No chimes.</div></div></div>
+  </div>
+  <div class="foot"><span>Tile values follow the screenshots' demo workspace</span><span>6</span></div>
+</section>
+
+<!-- 7 · panels 13–16 -->
+<section class="pg">
+  <div class="kick">Storyboard · 24.4–30.0 s</div>
+  <h2>The Commons: 04 Solve</h2>
+  <div class="grid">
+    <div class="pn"><img src="frames/panel-13-024.900.png"><div><div class="tc">13 · 24.4–24.9 s</div><h3>Navigate</h3><p>Back up to the nav; the cursor clicks Commons.</p><div class="snd">Click and page swish, varied from the first.</div></div></div>
+    <div class="pn"><img src="frames/panel-14-027.000.png"><div><div class="tc">14 · 24.9–27.9 s</div><h3>04 Solve</h3><p>The window turns three-quarter on the right; the title rises on the left. The Commons builds: trending capabilities, filters by role and region, listings. The question is typed into search.</p><div class="snd">The groove adds its last layer; soft typing.</div></div></div>
+    <div class="pn"><img src="frames/panel-15-028.420.png"><div><div class="tc">15 · 27.9–28.9 s</div><h3>Ask Heyden</h3><p>The window sweeps across the title and settles square-on over the search. Ask Heyden is pressed.</p><div class="snd">A low pop and a breathy reverse swell.</div></div></div>
+    <div class="pn"><img src="frames/panel-16-029.450.png"><div><div class="tc">16 · 28.9–30.0 s</div><h3>A curated view</h3><p>Ask Heyden (AI research on demand) researches the Commons and returns a curated view: the matching listings light up and the rest dim.</p><div class="snd">A soft, low pulse while it researches, then a bloom.</div></div></div>
+  </div>
+  <div class="foot"><span>The question is typed by the user; the listings are generic</span><span>7</span></div>
+</section>
+
+<!-- 8 · panels 17–18 + hand-off -->
+<section class="pg">
+  <div class="kick">Storyboard · 30.0–40.0 s</div>
+  <h2>The world, then v1's ending</h2>
+  <div class="grid">
+    <div class="pn"><img src="frames/panel-17-031.000.png"><div><div class="tc">17 · 30.0–32.0 s</div><h3>The world's at your fingertips.</h3><p>The platform drops away beneath the globe; arcs run from Peregian Beach to listings across Australia, the United States and Canada, as in v1.</p><div class="snd">Drums drop out; a sub swell and a wide, low whoosh carry into the roles.</div></div></div>
+    <div class="pn"><img src="frames/panel-18-033.200.png"><div><div class="tc">18 · 32.0–40.0 s <span class="tag v1">V1 · UNCHANGED</span></div><h3>One Commons. Many ways in. → Ideas to Outcomes</h3><p>From here the picture is v1's outro, unchanged, 10 s later: the roles, "Ideas to Outcomes", the mark, the lockup with Get started and heyden.ai. The film ends at 40.0 s.</p><div class="snd">Rebuilt in the new palette: the lift into "Ideas to Outcomes", the biggest hit of the film on the mark, a resolved final chord.</div></div></div>
+  </div>
+  <div class="foot"><span>Heyden launch film v3 · storyboard</span><span>8</span></div>
+</section>
+
+<!-- 9 · pace + sound -->
+<section class="pg">
+  <div class="kick">Pace and sound</div>
+  <h2>Slower to read, still moving; a score of our own</h2>
+  <div class="two">
+    <div>
+      <h3>What's on screen, and for how long</h3>
+      <table>
+        <tr><td>Collaborate · "Individual and inter-agency data sharing. Skip the duplicated efforts."</td><td class="t">2.8 s</td></tr>
+        <tr><td>A partner agency joins; their project arrives with editor access</td><td class="t">1.2 s</td></tr>
+        <tr><td>Innovate · "Quickly assess the viability of proposals. No more missed opportunities."</td><td class="t">2.6 s</td></tr>
+        <tr><td>The proposal, then the brief (TRL · IRL · ORL)</td><td class="t">2.6 s</td></tr>
+        <tr><td>Strategise · "Ensure alignment between projects and strategy. Kill scope creep."</td><td class="t">2.5 s</td></tr>
+        <tr><td>Align project → coverage 0% → 1%</td><td class="t">2.2 s</td></tr>
+        <tr><td>Solve · "Find solutions to your trickiest problems through the Commons."</td><td class="t">2.5 s</td></tr>
+        <tr><td>Ask Heyden → its curated view</td><td class="t">1.6 s</td></tr>
+        <tr><td>"The world's at your fingertips."</td><td class="t">1.5 s</td></tr>
+      </table>
+      <p style="margin-top:14px;font-size:14px">v1 gave each chapter 3.5 s in total, with the tagline competing against moving UI. Here each chapter is about 6 s: the title holds while the app moves slowly and without text behind it, then one close-up. Exact timings get tuned at real speed in the rough cut.</p>
+    </div>
+    <div>
+      <h3>Sound plan</h3>
+      <ul>
+        <li><b>Score:</b> original, written to the cut at 120 BPM (the intro's cuts already sit on that grid). Warm and low: sub bass, soft kick, rounded plucks and pads, top end rolled off. No stock loops, no marimba, glockenspiel, bells or bright shakers.</li>
+        <li><b>Arc:</b> tension under the intro → one big hit and a chord bloom on the logo → a groove that gains a layer each chapter, with a new chord colour at Strategise → a breakdown for the globe → the lift into "Ideas to Outcomes" → resolved on the mark.</li>
+        <li><b>Effects:</b> soft and bassy, from your library's low impacts, padded thumps, soft impacts, low whooshes and bass tones. Each kind of event has a family of sounds varied in sample, pitch and filter, so nothing repeats identically. Big moments get their own designed sound; small UI touches stay quiet; not every motion gets a sound.</li>
+        <li><b>The start:</b> the picture is v1's, but I plan to rebuild its sound in the same palette so the film sounds like one piece (question 3).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Heyden launch film v3 · storyboard</span><span>9</span></div>
+</section>
+
+<!-- 10 · questions -->
+<section class="pg">
+  <div class="kick">Before the rough cut</div>
+  <h2>Three things to answer</h2>
+  <div class="q"><div class="n">1 · THE PLATFORM</div><h3>Does this read as Heyden, and as the product you want shown?</h3><p>Anything to add, drop or change on the four pages: layout, content, the dark look, the demo data (Connor's workspace, the three projects, TRL 6 / IRL 4 / ORL 3)?</p></div>
+  <div class="q"><div class="n">2 · NAMES</div><h3>Generic names in the Commons and Strategy Hub: OK?</h3><p>Listings ("State fire agency", "Detection camera network"…) and source documents ("Strategic Direction", "Operations Plan"…) are generic so no real organisation appears as a user. If you'd rather show real Commons listings, say which.</p></div>
+  <div class="q"><div class="n">3 · SOUND AT THE START</div><h3>Rebuild the intro's sound too, or keep v1's?</h3><p>Your note on the start was about the picture, which stays exactly as v1. My plan is one new score and sound design across all 40 s. If you want v1's intro sound kept as it was, I'll blend from it into the new score at 8.0 s.</p></div>
+  <p style="margin-top:22px;font-size:15px" class="muted">Next: the rough cut at real speed, with sound, in ./rough/.</p>
+  <div class="foot"><span>Heyden launch film v3 · storyboard</span><span>10</span></div>
+</section>
+
+</body>
+</html>

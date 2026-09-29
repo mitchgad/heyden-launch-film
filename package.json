@@ -1,0 +1,13 @@
+{
+  "name": "heyden-launch-film",
+  "private": true,
+  "description": "The Heyden launch film: source, brand kit, storyboard and final render",
+  "scripts": {
+    "footage": "film/extract-footage.sh",
+    "audio": "python3 film/audio/remix.py",
+    "encode": "film/encode.sh"
+  },
+  "dependencies": {
+    "playwright": "1.59.1"
+  }
+}
