@@ -29,14 +29,22 @@ const opt = (name, def) => {
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json',
   '.ttf': 'font/ttf', '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml', '.css': 'text/css' };
 
+// a file under root, or null if the request tries to climb out of it (e.g. /brand/../../.ssh/id_rsa)
+function under(root, rest) {
+  const base = path.resolve(root);
+  const file = path.resolve(base, '.' + path.sep + rest);
+  return file.startsWith(base + path.sep) ? file : null;
+}
+
 function serve() {
   return new Promise((resolve) => {
     const server = http.createServer((req, res) => {
-      const url = decodeURIComponent(req.url.split('?')[0]);
-      const file = url.startsWith('/footage/') ? path.join(FOOTAGE, url.slice(9))
-        : url.startsWith('/film/') ? path.join(HERE, url.slice(6))
-        : url.startsWith('/brand/') ? path.join(PROJECT, 'brand', url.slice(7))
-        : url.startsWith('/storyboard/') ? path.join(PROJECT, 'storyboard', url.slice(12)) : null;
+      let url;
+      try { url = decodeURIComponent(req.url.split('?')[0]); } catch { res.writeHead(400); res.end(); return; }
+      const file = url.startsWith('/footage/') ? under(FOOTAGE, url.slice(9))
+        : url.startsWith('/film/') ? under(HERE, url.slice(6))
+        : url.startsWith('/brand/') ? under(path.join(PROJECT, 'brand'), url.slice(7))
+        : url.startsWith('/storyboard/') ? under(path.join(PROJECT, 'storyboard'), url.slice(12)) : null;
       if (!file) { res.writeHead(404); res.end(); return; }
       fs.readFile(file, (err, data) => {
         if (err) { res.writeHead(404); res.end(); return; }
